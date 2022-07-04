@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Get CRUD</title>
+</head>
+<style>
+    table, th, td {
+        border:1px solid black;
+    }
+    th {
+        text-align: center;
+    }
+    .btn-edit {
+        background: orange;
+        border: none;
+        height: 27px;
+        width: 50px;
+        margin: 3px;
+        border-radius: 10px;
+        outline: none;
+        cursor: pointer;
+    }
+    .btn-delete {
+        background: red;
+        border: none;
+        height: 27px;
+        width: 50px;
+        margin: 3px;
+        border-radius: 10px;
+        outline: none;
+        cursor: pointer;
+    }
+</style>
+<body>
+    <table style="width:100%">
+        <tr>
+            <th>Email</th>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Address</th>
+            <th>Action</th>
+        </tr>
+        <% for(let i=0; i < dataTable.length; i++) { %>
+            <tr>
+                <td><%= dataTable[i].email %></td>
+                <td><%= dataTable[i].firstName %></td>
+                <td><%= dataTable[i].lastName %></td>
+                <td><%= dataTable[i].address %></td>
+                <td>
+                    <a href="/edit-crud?id=<%= dataTable[i].id %>" class="btn-edit" type="button">Edit</a>
+                    <a class="btn-delete"type="button">Delete</a>
+                </td>
+            </tr>
+        <% } %>
+    </table>
+</body>
+</html>
